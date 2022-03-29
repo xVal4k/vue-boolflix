@@ -26,6 +26,7 @@ export default {
     return {
       strSearch: "",
       arrMovies: [],
+      arrSeries: [],
     };
   },
   methods: {
@@ -33,11 +34,18 @@ export default {
       axios
         .get(
           "https://api.themoviedb.org/3/search/movie?api_key=060663a1ee9fb81d34d744059a61645a&language=it-IT&query=" +
-            this.strSearch
-        )
-        .then((response) => {
-          this.arrMovies = response.data.results;
-          this.$emit("cards-received", this.arrMovies);
+            this.strSearch)
+        .then((response1) => {
+          this.arrMovies = response1.data.results;
+          this.$emit("movie-received", this.arrMovies);
+        });
+      axios
+        .get(
+          "https://api.themoviedb.org/3/search/tv?api_key=060663a1ee9fb81d34d744059a61645a&language=it-IT&query=" +
+            this.strSearch)
+        .then((response2) => {
+          this.arrSeries = response2.data.results;
+          this.$emit("serie-received", this.arrSeries);
         });
       this.strSearch = "";
     },

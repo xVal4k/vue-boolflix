@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <HeaderBoolflix
-      @cards-received="arrMovies = $event"
+      @movie-received="arrMovies = $event"
+      @serie-received="arrSeries = $event"
     />
     <MainBoolflix
       :arr-movie-name="arrMovies"
+      :arr-serie-name="arrSeries"
     />
   </div>
 </template>
@@ -24,11 +26,12 @@ export default {
   data () {
     return {
       arrMovies: null,
+      arrSeries: null,
     }
   },
 };
 </script>
 
 <style lang="scss">
-@import './assets/styles/style.scss'
+@import './assets/styles/style.scss';
 </style>

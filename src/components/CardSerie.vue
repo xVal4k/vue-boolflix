@@ -4,8 +4,8 @@
       <img :src="source + card.backdrop_path" :alt="card.title" />
     </div>
     <div class="text">
-      <h2>{{ card.title }}</h2>
-      <h3>({{ card.original_title }})</h3>
+      <h2>{{ card.name }}</h2>
+      <h3>({{ card.original_name }})</h3>
       <h4>Voto Medio: {{ card.vote_average }}</h4>
       <lang-flag :iso="card.original_language" :squared="false" />
     </div>
@@ -17,7 +17,7 @@
 import LangFlag from 'vue-lang-code-flags';
 
 export default {
-  name: 'CardFilm',
+  name: 'CardSerie',
   components: {
     LangFlag,
   },
