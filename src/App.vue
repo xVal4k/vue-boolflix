@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <HeaderBoolflix />
-    <MainBoolflix />
+    <HeaderBoolflix
+      @cards-received="arrMovies = $event"
+    />
+    <MainBoolflix
+      :arr-movie-name="arrMovies"
+    />
   </div>
 </template>
 
@@ -16,6 +20,11 @@ export default {
   components: {
     HeaderBoolflix,
     MainBoolflix
+  },
+  data () {
+    return {
+      arrMovies: null,
+    }
   },
 };
 </script>

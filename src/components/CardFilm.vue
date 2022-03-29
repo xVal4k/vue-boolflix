@@ -1,9 +1,14 @@
 <template>
   <div class="card">
-    <h2>Titolo: {{ card.title }}</h2>
-    <h2>Titolo Originale: {{ card.original_title }}</h2>
-    <h3>Voto Medio: {{ card.vote_average }}</h3>
-    <h3>Lingua Originale: {{ card.original_language }}</h3>
+    <div class="image">
+      <img :src="source + card.backdrop_path" :alt="card.title" />
+    </div>
+    <div class="text">
+      <h2>{{ card.title }}</h2>
+      <h3>({{ card.original_title }})</h3>
+      <h4>Voto Medio: {{ card.vote_average }}</h4>
+      <h4>Lingua Originale: {{ card.original_language }}</h4>
+    </div>
   </div>
 </template>
 
@@ -14,16 +19,26 @@ export default {
   props: {
     card: Object,
   },
+  data() {
+    return {
+      source: 'https://image.tmdb.org/t/p/w342',
+    };
+  },
 };
 </script>
 
 <style scoped lang="scss">
-  .card {
-    padding: 1rem;
-    background: black;
-    color: white;
-    width: calc(100% / 5 - 1rem);
-    margin: .5rem;
-    text-align: center;
-  }
+.card {
+  width: calc(100% / 5 - 1rem);
+  height: 400px;
+  padding: 2rem 1rem;
+  background: black;
+  color: white;
+  margin: 0.5rem;
+  text-align: center;
+}
+
+img {
+  width: 100%;
+}
 </style>
