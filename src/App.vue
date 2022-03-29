@@ -1,28 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HeaderBoolflix />
+    <MainBoolflix />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+/* eslint-disable */
+
+import HeaderBoolflix from './components/HeaderBoolflix.vue';
+import MainBoolflix from './components/MainBoolflix.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    HeaderBoolflix,
+    MainBoolflix
   },
 };
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import './assets/styles/style.scss'
 </style>
