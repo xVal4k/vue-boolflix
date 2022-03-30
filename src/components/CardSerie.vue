@@ -14,7 +14,9 @@
         <span class="grey">{{ card.overview }}</span>
       </h3>
       <h4>
-        Voto Medio: <span class="grey">{{ card.vote_average }}</span>
+        <span>Voto Medio: </span>
+        <span v-for="star in card.vote_average" :key="star">&#9733;</span>
+        <span v-for="Emptystar in (5 - card.vote_average)" :key="Emptystar">&#9734;</span>
       </h4>
       <p>
         Lingua originale:
