@@ -18,13 +18,13 @@
 
 <script>
 /* eslint-disable */
-import axios from "axios";
+import axios from 'axios';
 
 export default {
-  name: "HeaderBoolflix",
+  name: 'HeaderBoolflix',
   data() {
     return {
-      strSearch: "",
+      strSearch: '',
       arrMovies: [],
       arrSeries: [],
     };
@@ -37,6 +37,13 @@ export default {
             this.strSearch)
         .then((response1) => {
           this.arrMovies = response1.data.results;
+          this.arrMovies.forEach((card) => {
+            if (Math.floor(card.vote_average) <= 2) {
+              card.vote_average = 1
+            } else {
+              card.vote_average = Math.floor(card.vote_average / 2);
+            }
+          })
           this.$emit("movie-received", this.arrMovies);
         });
       axios
@@ -45,6 +52,13 @@ export default {
             this.strSearch)
         .then((response2) => {
           this.arrSeries = response2.data.results;
+          this.arrSeries.forEach((card) => {
+            if (Math.floor(card.vote_average) <= 2) {
+              card.vote_average = 1
+            } else {
+              card.vote_average = Math.floor(card.vote_average / 2);
+            }
+          })
           this.$emit("serie-received", this.arrSeries);
         });
       this.strSearch = "";
