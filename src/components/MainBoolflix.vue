@@ -15,8 +15,8 @@
 <script>
 /* eslint-disable */
 
-import CardFilm from "./CardFilm.vue";
-import CardSerie from "./CardSerie.vue";
+import CardFilm from './CardFilm.vue';
+import CardSerie from './CardSerie.vue';
 
 export default {
   name: 'MainBoolflix',

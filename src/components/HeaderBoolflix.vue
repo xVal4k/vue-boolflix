@@ -34,31 +34,33 @@ export default {
       axios
         .get(
           "https://api.themoviedb.org/3/search/movie?api_key=060663a1ee9fb81d34d744059a61645a&language=it-IT&query=" +
-            this.strSearch)
+            this.strSearch
+        )
         .then((response1) => {
           this.arrMovies = response1.data.results;
           this.arrMovies.forEach((card) => {
             if (Math.floor(card.vote_average) <= 2) {
-              card.vote_average = 1
+              card.vote_average = 1;
             } else {
               card.vote_average = Math.floor(card.vote_average / 2);
             }
-          })
+          });
           this.$emit("movie-received", this.arrMovies);
         });
       axios
         .get(
           "https://api.themoviedb.org/3/search/tv?api_key=060663a1ee9fb81d34d744059a61645a&language=it-IT&query=" +
-            this.strSearch)
+            this.strSearch
+        )
         .then((response2) => {
           this.arrSeries = response2.data.results;
           this.arrSeries.forEach((card) => {
             if (Math.floor(card.vote_average) <= 2) {
-              card.vote_average = 1
+              card.vote_average = 1;
             } else {
               card.vote_average = Math.floor(card.vote_average / 2);
             }
-          })
+          });
           this.$emit("serie-received", this.arrSeries);
         });
       this.strSearch = "";

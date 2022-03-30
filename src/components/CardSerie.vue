@@ -4,11 +4,20 @@
       <img :src="source + card.poster_path" :alt="card.title" />
     </div>
     <div class="card-back">
-      <h2>Titolo: <span class="grey">{{ card.name }}</span></h2>
-      <h2>Titolo originale: <span class="grey">{{ card.original_name }}</span></h2>
-      <h3 class="trama"><span class="grey">{{ card.overview }}</span></h3>
-      <h4>Voto Medio: <span class="grey">{{ card.vote_average }}</span></h4>
-      <p>Lingua originale:
+      <h2>
+        Titolo: <span class="grey">{{ card.name }}</span>
+      </h2>
+      <h2>
+        Titolo originale: <span class="grey">{{ card.original_name }}</span>
+      </h2>
+      <h3 class="trama">
+        <span class="grey">{{ card.overview }}</span>
+      </h3>
+      <h4>
+        Voto Medio: <span class="grey">{{ card.vote_average }}</span>
+      </h4>
+      <p>
+        Lingua originale:
         <lang-flag :iso="card.original_language" :squared="false" />
       </p>
     </div>
@@ -35,6 +44,4 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>
